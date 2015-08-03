@@ -14,6 +14,8 @@ var bsSwitchComponent = Ember.Component.extend({
   onText: 'ON',
   offText: 'OFF',
   labelText: '',
+  offValue: false,
+  onValue: true
 
   // Insternal state.
   status: false,
@@ -32,7 +34,7 @@ var bsSwitchComponent = Ember.Component.extend({
 
     this.$('input').bootstrapSwitch({
       "size": this.get('btnSize'),
-      "state": this.get('status'),
+      "state": (this.get('status') && this.get('onValue')) || this.get('offValue'),
       "disabled": this.get('disabled'),
       "onText": this.get('onText'),
       "offText": this.get('offText'),
